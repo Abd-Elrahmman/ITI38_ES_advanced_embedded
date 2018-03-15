@@ -10,5 +10,8 @@
 
 extern void voidTask2(void);
 
+extern void voidCheckModeUART(void);
 
+extern u8 u8CurrentMode;
+extern void voidDisplay(void);
 #endif /* TASK2_H_ */

@@ -4,8 +4,6 @@
  *  Created on: ??þ/??þ/????
  *      Author: Mousa
  */
-
-
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
 #include "DIO_int.h"
@@ -17,23 +15,27 @@
 #include "taskSwitchLed.h"
 #include "KP_int.h"
 #include "sw.h"
+#include "protocol.h"
 
 void taskSwitchLed(void){
-
+	u8 u8Byte;
 	if (SW_u8GetState(0)){
-		/* PC1 High Led */
-		DIO_voidSetPinValue(DIO_u8_PIN_16, DIO_u8_HIGH);
+		/* Stores the button1 ID, and place it in the higher nibble - 4 bits - , PRESSED*/
+		u8Byte = (ID_B1<<4)|(0U);
+
 	}
 	else
 	{
-		DIO_voidSetPinValue(DIO_u8_PIN_16, DIO_u8_LOW);
+		/* Stores the button1 ID, and place it in the higher nibble - 4 bits - , RELEASED*/
+		u8Byte = (ID_B1<<4)|(1U);
 	}
 	if (SW_u8GetState(1)){
-		/* PC1 High Led */
-		DIO_voidSetPinValue(DIO_u8_PIN_23, DIO_u8_HIGH);
+		/* Stores the button1 ID, and place it in the higher nibble - 4 bits - , RELEASED*/
+		u8Byte = (ID_B2<<4)|(0U);
 	}
 	else
 	{
-		DIO_voidSetPinValue(DIO_u8_PIN_23, DIO_u8_LOW);
+		/* Stores the button1 ID, and place it in the higher nibble - 4 bits - , RELEASED*/
+		u8Byte = (ID_B2<<4)|(1U);
 	}
 }

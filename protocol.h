@@ -14,7 +14,8 @@
 #define ID_KP_VALUE       2U
 #define ID_KP_ADJUST      3U
 #define ID_MOD_SWITCH     4U
-
+#define PRESSED 		   0
+#define RELEASED           1
 
 void protcole_task(void);
 

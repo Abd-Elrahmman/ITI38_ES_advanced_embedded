@@ -85,7 +85,7 @@ void voidClockAdjust(void)
 
 	switch(u16AdjustState)
 	{
-	case NORMAL_STATE:
+		case NORMAL_STATE:
 		/* check if the kp got pressed */
 		u16KeypadStoredValue= KP_u16GetStatus();
 
