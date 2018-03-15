@@ -16,7 +16,7 @@
 #define ID_MOD_SWITCH     4U
 
 
-
+void protcole_task(void);
 
 
 #endif /* PROTOCOL_H_ */

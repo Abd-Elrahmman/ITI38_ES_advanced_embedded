@@ -10,6 +10,7 @@
 #include "taskSwitchLed.h"
 #include "KP_int.h"
 #include "sw.h"
+#include "protocol.h"
 void main(void)
 {
 	DIO_voidInitialize();
