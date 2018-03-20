@@ -9,6 +9,7 @@
 #include "DIO_int.h"
 #include "UART.h"
 #include  "UART_cfg.h"
+#include "GIE_int.h"
 
 static UART_t UART_data = {{0}, 0};
 void UART_Init(void)
@@ -44,8 +45,11 @@ void UART_Transmit(u8* data, u16 Len)
 void UART_Receive(u8 *data, u16 *len)
 {
 	u16 u16CountrLoopLoc;
+	/* Disabling the Global interrupt to ensure*/
+	GIE_DISABLE();
 	/* Disable RX Interrupt */
 	UCSRB &= ~(1<<RXCIE);
+
 
 	/* return the size of received data */
 	*len = UART_data.RxBufferSize;
@@ -61,6 +65,8 @@ void UART_Receive(u8 *data, u16 *len)
 
 	/* Enable RX Interrupt */
 	UCSRB |= (1<<RXCIE);
+	/* Enabling the global interrupt */
+	GIE_ENABLE();
 }
 
 /* Enabling USART, Rx Complete Based on vector table from data sheet page 42*/

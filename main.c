@@ -11,6 +11,7 @@
 #include "KP_int.h"
 #include "sw.h"
 #include "protocol.h"
+#include "UART_Rx_TEST.h"
 void main(void)
 {
 	DIO_voidInitialize();
@@ -26,6 +27,9 @@ void main(void)
 	/*Setting Internal PullUp Resistor for The Switch1, 2 INPUT */
 	DIO_voidSetPinValue(DIO_u8_PIN_17, DIO_u8_HIGH);
 	DIO_voidSetPinValue(DIO_u8_PIN_18, DIO_u8_HIGH);
+
+
 	GIE_ENABLE();
 	OS_voidStart();
+
 }
