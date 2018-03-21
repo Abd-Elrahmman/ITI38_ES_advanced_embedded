@@ -116,7 +116,7 @@ void voidClockAdjust(void)
 					/* combine the tow digits in one decimal value*/
 					if(u8DigitCounter == 0)
 					{
-						PORTB = u8SegNum[u8digit];
+						PORTC = u8SegNum[u8digit];
 						u8AdjustValue = u8digit * 10;
 						u16AdjustStateTimeout = 6;
 					}

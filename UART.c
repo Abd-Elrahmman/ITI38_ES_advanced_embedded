@@ -69,6 +69,20 @@ void UART_Receive(u8 *data, u16 *len)
 	GIE_ENABLE();
 }
 
+
+/*  if UART buffer is not empty: return number of available bytes  */
+u8 UART_u8DataAvilable(void)
+{
+	return UART_data.RxBufferSize;
+}
+
+/* return last byte in UART buffer */
+u8 UART_u8ReadByte(void)
+{
+	UART_data.RxBufferSize--;
+	return UART_data.RxBuffer[UART_data.RxBufferSize];
+}
+
 /* Enabling USART, Rx Complete Based on vector table from data sheet page 42*/
 void __vector_13 (void) __attribute__((signal, used));
 void __vector_13 (void)

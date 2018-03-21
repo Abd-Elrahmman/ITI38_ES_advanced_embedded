@@ -55,25 +55,25 @@ void taskSwitch2Led(void)
 /* Functions handles the UART Recieving the signal for the switch*/
 void taskReciever(void)
 {
-	u8 dataRecieved;
-	u16 length;
+	if(UART_u8DataAvilable())
+	{
+		u8 dataRecieved =  UART_u8ReadByte();
+		if(dataRecieved == (ID_B1<<4)|(0U)) /*led1  on */
+		{
+			DIO_voidSetPinValue(DIO_u8_PIN_16,DIO_u8_HIGH);
+		}
+		else if(dataRecieved == ((ID_B1<<4)|(1U)))
+		{
+			DIO_voidSetPinValue(DIO_u8_PIN_16,DIO_u8_LOW);
+		}
 
-	UART_Receive(&dataRecieved,&length);
-	if(dataRecieved == 0x00) /*led1  on */
-	{
-		DIO_voidSetPinValue(DIO_u8_PIN_16,DIO_u8_HIGH);
-	}
-	else
-	{
-		DIO_voidSetPinValue(DIO_u8_PIN_16,DIO_u8_LOW);
-	}
-
-	if(dataRecieved == 0x10)/*led2 on*/
-	{
-		DIO_voidSetPinValue(DIO_u8_PIN_23,DIO_u8_HIGH);
-	}
-	else
-	{
-		DIO_voidSetPinValue(DIO_u8_PIN_23,DIO_u8_LOW);
+		if(dataRecieved == (ID_B2<<4)|(0U))/*led2 on*/
+		{
+			DIO_voidSetPinValue(DIO_u8_PIN_23,DIO_u8_HIGH);
+		}
+		else if(dataRecieved == (ID_B2<<4)|(1U))
+		{
+			DIO_voidSetPinValue(DIO_u8_PIN_23,DIO_u8_LOW);
+		}
 	}
 }

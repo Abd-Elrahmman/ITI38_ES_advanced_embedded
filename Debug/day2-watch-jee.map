@@ -1,0 +1,626 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+                              ./task1.o (__udivmodqi4)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                              ./OS.o (__udivmodsi4)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              ./OS_cfg.o (__do_copy_data)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              ./Clock_adjust.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+u8FlagAdjustmentMode
+                    0x1               ./Clock_adjust.o
+Min2                0x1               ./task1.o
+Sec1                0x1               ./task1.o
+Sec2                0x1               ./task1.o
+Min1                0x1               ./task1.o
+Hr1                 0x1               ./task1.o
+u8CurrentMode       0x1               ./task2.o
+Hr2                 0x1               ./task1.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+LOAD ./Clock_adjust.o
+LOAD ./DIO_prog.o
+LOAD ./OS.o
+LOAD ./OS_cfg.o
+LOAD ./TIM_prog.o
+LOAD ./UART.o
+LOAD ./UART_Rx_TEST.o
+LOAD ./UART_cfg.o
+LOAD ./keypad.o
+LOAD ./main.o
+LOAD ./protocol.o
+LOAD ./sw.o
+LOAD ./task1.o
+LOAD ./task2.o
+LOAD ./taskSwitchLed.o
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x12fc
+ *(.vectors)
+ .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000054                . = ALIGN (0x2)
+                0x00000054                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000054        0x0 linker stubs
+ *(.trampolines*)
+                0x00000054                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000054                __ctors_start = .
+ *(.ctors)
+                0x00000054                __ctors_end = .
+                0x00000054                __dtors_start = .
+ *(.dtors)
+                0x00000054                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000054        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x00000054                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000054        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000060       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000060                __do_copy_data
+ .init4         0x00000076       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000076                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000086        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ *(.init9)
+ *(.text)
+ .text          0x0000008e        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x0000008e                __vector_1
+                0x0000008e                __vector_12
+                0x0000008e                __bad_interrupt
+                0x0000008e                __vector_6
+                0x0000008e                __vector_3
+                0x0000008e                __vector_11
+                0x0000008e                __vector_17
+                0x0000008e                __vector_19
+                0x0000008e                __vector_7
+                0x0000008e                __vector_5
+                0x0000008e                __vector_4
+                0x0000008e                __vector_9
+                0x0000008e                __vector_2
+                0x0000008e                __vector_15
+                0x0000008e                __vector_8
+                0x0000008e                __vector_14
+                0x0000008e                __vector_16
+                0x0000008e                __vector_18
+                0x0000008e                __vector_20
+ .text          0x00000092        0x0 ./Clock_adjust.o
+ .text          0x00000092        0x0 ./DIO_prog.o
+ .text          0x00000092        0x0 ./OS.o
+ .text          0x00000092        0x0 ./OS_cfg.o
+ .text          0x00000092        0x0 ./TIM_prog.o
+ .text          0x00000092        0x0 ./UART.o
+ .text          0x00000092        0x0 ./UART_Rx_TEST.o
+ .text          0x00000092        0x0 ./UART_cfg.o
+ .text          0x00000092        0x0 ./keypad.o
+ .text          0x00000092        0x0 ./main.o
+ .text          0x00000092        0x0 ./protocol.o
+ .text          0x00000092        0x0 ./sw.o
+ .text          0x00000092        0x0 ./task1.o
+ .text          0x00000092        0x0 ./task2.o
+ .text          0x00000092        0x0 ./taskSwitchLed.o
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000092        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000092                . = ALIGN (0x2)
+ *(.text.*)
+ .text.u8GetNum
+                0x00000092       0xf6 ./Clock_adjust.o
+                0x00000092                u8GetNum
+ .text.voidClockAdjust
+                0x00000188      0x202 ./Clock_adjust.o
+                0x00000188                voidClockAdjust
+ .text.DIO_voidInitialize
+                0x0000038a       0x2e ./DIO_prog.o
+                0x0000038a                DIO_voidInitialize
+ .text.DIO_voidSetPinValue
+                0x000003b8      0x1b2 ./DIO_prog.o
+                0x000003b8                DIO_voidSetPinValue
+ .text.DIO_u8GetPinValue
+                0x0000056a      0x112 ./DIO_prog.o
+                0x0000056a                DIO_u8GetPinValue
+ .text.OS_voidInitialization
+                0x0000067c        0xe ./OS.o
+                0x0000067c                OS_voidInitialization
+ .text.OS_voidStart
+                0x0000068a       0x9e ./OS.o
+                0x0000068a                OS_voidStart
+ .text.__vector_10
+                0x00000728       0x5c ./OS.o
+                0x00000728                __vector_10
+ .text.TIMER0_voidInit
+                0x00000784       0x6a ./TIM_prog.o
+                0x00000784                TIMER0_voidInit
+ .text.UART_Init
+                0x000007ee       0x5c ./UART.o
+                0x000007ee                UART_Init
+ .text.UART_Transmit
+                0x0000084a       0x6e ./UART.o
+                0x0000084a                UART_Transmit
+ .text.UART_Receive
+                0x000008b8       0xb2 ./UART.o
+                0x000008b8                UART_Receive
+ .text.UART_u8DataAvilable
+                0x0000096a       0x12 ./UART.o
+                0x0000096a                UART_u8DataAvilable
+ .text.UART_u8ReadByte
+                0x0000097c       0x28 ./UART.o
+                0x0000097c                UART_u8ReadByte
+ .text.__vector_13
+                0x000009a4       0x5c ./UART.o
+                0x000009a4                __vector_13
+ .text.voidRecieveFunc
+                0x00000a00       0x40 ./UART_Rx_TEST.o
+                0x00000a00                voidRecieveFunc
+ .text.voidSendFunc
+                0x00000a40       0x32 ./UART_Rx_TEST.o
+                0x00000a40                voidSendFunc
+ .text.KP_u16GetStatus
+                0x00000a72       0xb6 ./keypad.o
+                0x00000a72                KP_u16GetStatus
+ .text.KP_voidGetColStatus
+                0x00000b28       0xf6 ./keypad.o
+                0x00000b28                KP_voidGetColStatus
+ .text.main     0x00000c1e       0x5c ./main.o
+                0x00000c1e                main
+ .text.protcole_task
+                0x00000c7a       0x9e ./protocol.o
+                0x00000c7a                protcole_task
+ .text.SW_u8GetState
+                0x00000d18       0x30 ./sw.o
+                0x00000d18                SW_u8GetState
+ .text.SW_u16GetHoldTime
+                0x00000d48       0x16 ./sw.o
+                0x00000d48                SW_u16GetHoldTime
+ .text.SW_voidSwTask
+                0x00000d5e      0x116 ./sw.o
+                0x00000d5e                SW_voidSwTask
+ .text.voidTask1
+                0x00000e74       0xbc ./task1.o
+                0x00000e74                voidTask1
+ .text.voidCheckModeUART
+                0x00000f30       0x7a ./task2.o
+                0x00000f30                voidCheckModeUART
+ .text.voidDisplaySeconds
+                0x00000faa       0x3a ./task2.o
+                0x00000faa                voidDisplaySeconds
+ .text.voidDisplayMinutes
+                0x00000fe4       0x3a ./task2.o
+                0x00000fe4                voidDisplayMinutes
+ .text.voidDisplayHours
+                0x0000101e       0x3a ./task2.o
+                0x0000101e                voidDisplayHours
+ .text.voidDisplay
+                0x00001058       0x4c ./task2.o
+                0x00001058                voidDisplay
+ .text.voidTask2
+                0x000010a4      0x13e ./task2.o
+                0x000010a4                voidTask2
+ .text.taskSwitch1Led
+                0x000011e2       0x32 ./taskSwitchLed.o
+                0x000011e2                taskSwitch1Led
+ .text.taskSwitch2Led
+                0x00001214       0x32 ./taskSwitchLed.o
+                0x00001214                taskSwitch2Led
+ .text.taskReciever
+                0x00001246       0x56 ./taskSwitchLed.o
+                0x00001246                taskReciever
+ .text.libgcc   0x0000129c       0x18 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+                0x0000129c                __udivmodqi4
+ .text.libgcc   0x000012b4       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x000012b4                __udivmodsi4
+ .text.libgcc   0x000012f8        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000012f8        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000012f8        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x000012f8                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000012f8        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000012f8                exit
+                0x000012f8                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000012f8        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000012fc                _etext = .
+
+.data           0x00800060       0x2e load address 0x000012fc
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .data          0x00800060        0x0 ./Clock_adjust.o
+ .data          0x00800060        0x0 ./DIO_prog.o
+ .data          0x00800060        0x0 ./OS.o
+ .data          0x00800060        0x0 ./OS_cfg.o
+ .data          0x00800060        0x0 ./TIM_prog.o
+ .data          0x00800060        0x0 ./UART.o
+ .data          0x00800060        0x0 ./UART_Rx_TEST.o
+ .data          0x00800060        0x0 ./UART_cfg.o
+ .data          0x00800060        0x0 ./keypad.o
+ .data          0x00800060        0x0 ./main.o
+ .data          0x00800060        0x0 ./protocol.o
+ .data          0x00800060        0x0 ./sw.o
+ .data          0x00800060        0x0 ./task1.o
+ .data          0x00800060        0x0 ./task2.o
+ .data          0x00800060        0x0 ./taskSwitchLed.o
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.data*)
+ .data.u8SegNum
+                0x00800060        0xa ./task1.o
+                0x00800060                u8SegNum
+ .data.u8Flag.1308
+                0x0080006a        0x1 ./task2.o
+ *(.rodata)
+ *(.rodata*)
+ .rodata.OS_cfg
+                0x0080006b       0x20 ./OS_cfg.o
+                0x0080006b                OS_cfg
+ .rodata.u8NumberOfTasks
+                0x0080008b        0x1 ./OS_cfg.o
+                0x0080008b                u8NumberOfTasks
+ .rodata.u8Link_To_Dio
+                0x0080008c        0x2 ./sw.o
+                0x0080008c                u8Link_To_Dio
+ *(.gnu.linkonce.d*)
+                0x0080008e                . = ALIGN (0x2)
+                0x0080008e                _edata = .
+                0x0080008e                PROVIDE (__data_end, .)
+
+.bss            0x0080008e       0x35
+                0x0080008e                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080008e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x0080008e        0x0 ./Clock_adjust.o
+ .bss           0x0080008e        0x0 ./DIO_prog.o
+ .bss           0x0080008e        0x0 ./OS.o
+ .bss           0x0080008e        0x0 ./OS_cfg.o
+ .bss           0x0080008e        0x0 ./TIM_prog.o
+ .bss           0x0080008e        0x0 ./UART.o
+ .bss           0x0080008e        0x0 ./UART_Rx_TEST.o
+ .bss           0x0080008e        0x0 ./UART_cfg.o
+ .bss           0x0080008e        0x0 ./keypad.o
+ .bss           0x0080008e        0x0 ./main.o
+ .bss           0x0080008e        0x0 ./protocol.o
+ .bss           0x0080008e        0x0 ./sw.o
+ .bss           0x0080008e        0x0 ./task1.o
+ .bss           0x0080008e        0x0 ./task2.o
+ .bss           0x0080008e        0x0 ./taskSwitchLed.o
+ .bss           0x0080008e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+ .bss           0x0080008e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x0080008e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x0080008e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x0080008e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ .bss.u16KeypadStoredValue.1253
+                0x0080008e        0x2 ./Clock_adjust.o
+ .bss.u16AdjustStateTimeout.1252
+                0x00800090        0x2 ./Clock_adjust.o
+ .bss.u8AdjustValue.1251
+                0x00800092        0x1 ./Clock_adjust.o
+ .bss.u8DigitCounter.1250
+                0x00800093        0x1 ./Clock_adjust.o
+ .bss.u16AdjustState.1249
+                0x00800094        0x2 ./Clock_adjust.o
+ .bss.u32Tick_counter
+                0x00800096        0x4 ./OS.o
+                0x00800096                u32Tick_counter
+ .bss.u8Tick_Flag
+                0x0080009a        0x1 ./OS.o
+                0x0080009a                u8Tick_Flag
+ .bss.u8LoopCounterLoc.1249
+                0x0080009b        0x1 ./OS.o
+ .bss.UART_data
+                0x0080009c        0xb ./UART.o
+ .bss.KP_u16Status
+                0x008000a7        0x2 ./keypad.o
+ .bss.u8SwState
+                0x008000a9        0x2 ./sw.o
+ .bss.SW_u16wHoldTime
+                0x008000ab        0x2 ./sw.o
+ .bss.u8PrevState.1220
+                0x008000ad        0x2 ./sw.o
+ .bss.u8Cnt.1219
+                0x008000af        0x4 ./sw.o
+ .bss.u8CounterLoop1.1218
+                0x008000b3        0x1 ./sw.o
+ .bss.counterSec
+                0x008000b4        0x1 ./task1.o
+                0x008000b4                counterSec
+ .bss.countermin
+                0x008000b5        0x1 ./task1.o
+                0x008000b5                countermin
+ .bss.counterhr
+                0x008000b6        0x1 ./task1.o
+                0x008000b6                counterhr
+ .bss.u32KeypadStoredValue.1307
+                0x008000b7        0x4 ./task2.o
+ *(COMMON)
+ COMMON         0x008000bb        0x1 ./Clock_adjust.o
+                0x008000bb                u8FlagAdjustmentMode
+ COMMON         0x008000bc        0x6 ./task1.o
+                0x008000bc                Min2
+                0x008000bd                Sec1
+                0x008000be                Sec2
+                0x008000bf                Min1
+                0x008000c0                Hr1
+                0x008000c1                Hr2
+ COMMON         0x008000c2        0x1 ./task2.o
+                0x008000c2                u8CurrentMode
+                0x008000c3                PROVIDE (__bss_end, .)
+                0x000012fc                __data_load_start = LOADADDR (.data)
+                0x0000132a                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008000c3        0x0
+                0x008000c3                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x008000c3                PROVIDE (__noinit_end, .)
+                0x008000c3                _end = .
+                0x008000c3                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000     0x2790
+ *(.stab)
+ .stab          0x00000000      0x4bc ./Clock_adjust.o
+ .stab          0x000004bc      0x39c ./DIO_prog.o
+                                0x420 (size before relaxing)
+ .stab          0x00000858      0x414 ./OS.o
+                                0x498 (size before relaxing)
+ .stab          0x00000c6c      0x108 ./OS_cfg.o
+                                0x1a4 (size before relaxing)
+ .stab          0x00000d74      0x15c ./TIM_prog.o
+                                0x1e0 (size before relaxing)
+ .stab          0x00000ed0      0x3b4 ./UART.o
+                                0x438 (size before relaxing)
+ .stab          0x00001284      0x1ec ./UART_Rx_TEST.o
+                                0x288 (size before relaxing)
+ .stab          0x00001470       0xe4 ./UART_cfg.o
+                                0x168 (size before relaxing)
+ .stab          0x00001554      0x2ac ./keypad.o
+                                0x330 (size before relaxing)
+ .stab          0x00001800      0x198 ./main.o
+                                0x234 (size before relaxing)
+ .stab          0x00001998      0x1ec ./protocol.o
+                                0x288 (size before relaxing)
+ .stab          0x00001b84      0x2ac ./sw.o
+                                0x330 (size before relaxing)
+ .stab          0x00001e30      0x234 ./task1.o
+                                0x2b8 (size before relaxing)
+ .stab          0x00002064      0x498 ./task2.o
+                                0x534 (size before relaxing)
+ .stab          0x000024fc      0x294 ./taskSwitchLed.o
+                                0x330 (size before relaxing)
+
+.stabstr        0x00000000     0x106c
+ *(.stabstr)
+ .stabstr       0x00000000     0x106c ./Clock_adjust.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(day2-watch-jee.elf elf32-avr)
+LOAD linker stubs

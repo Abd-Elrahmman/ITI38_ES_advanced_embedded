@@ -17,13 +17,14 @@
 /* Every 50 periodicity equal to 1 second, TICK = 20ms */
 const OS_config_task OS_cfg[] = {
 								{voidTask1, 40}, // Regular CLOCK
-								{voidClockAdjust, 15},  //Adjust the CLock
+								{voidClockAdjust, 10},  //Adjust the CLock
 								{SW_voidSwTask, 1}, // Switch Sampling
-								{taskSwitch2Led, 5},
-								{taskSwitch1Led, 6},
+								{taskSwitch2Led, 3},
+								{taskSwitch1Led, 3},
+								//{voidTask2,5},
 
-								{taskReciever,9},
-								{voidCheckModeUART, 20},
+								{protcole_task,1},
+								{voidCheckModeUART, 1},
 								{voidDisplay, 2}};//DISPLAY and CHANGE DISPLAY
 
 

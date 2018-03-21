@@ -11,7 +11,7 @@ static u8  u8SwState [NUMBER_OF_SW] = {0};
 static u16 SW_u16wHoldTime  = 0;
 
 
-u8 const u8Link_To_Dio [] = {DIO_u8_PIN_17, DIO_u8_PIN_18};
+u8 const u8Link_To_Dio [] = {DIO_u8_PIN_29, DIO_u8_PIN_28};
 /* get the switch state */
 u8 SW_u8GetState(u8 u8SwitchPin)
 {

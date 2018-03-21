@@ -20,13 +20,13 @@ void main(void)
 	/*enable uart*/
 	UART_Init();
 	/*Setting Internal PullUp Resistor for The keypad INPUT ROWS */
-	DIO_voidSetPinValue(DIO_u8_PIN_28, DIO_u8_HIGH);
-	DIO_voidSetPinValue(DIO_u8_PIN_29, DIO_u8_HIGH);
-	DIO_voidSetPinValue(DIO_u8_PIN_30, DIO_u8_HIGH);
-	DIO_voidSetPinValue(DIO_u8_PIN_31, DIO_u8_HIGH);
+	DIO_voidSetPinValue(DIO_u8_PIN_12, DIO_u8_HIGH);
+	DIO_voidSetPinValue(DIO_u8_PIN_13, DIO_u8_HIGH);
+	DIO_voidSetPinValue(DIO_u8_PIN_14, DIO_u8_HIGH);
+	DIO_voidSetPinValue(DIO_u8_PIN_15, DIO_u8_HIGH);
 	/*Setting Internal PullUp Resistor for The Switch1, 2 INPUT */
-	DIO_voidSetPinValue(DIO_u8_PIN_17, DIO_u8_HIGH);
-	DIO_voidSetPinValue(DIO_u8_PIN_18, DIO_u8_HIGH);
+	DIO_voidSetPinValue(DIO_u8_PIN_29, DIO_u8_HIGH);
+	DIO_voidSetPinValue(DIO_u8_PIN_28, DIO_u8_HIGH);
 
 
 	GIE_ENABLE();

@@ -35,4 +35,10 @@ extern void UART_Transmit(u8* data, u16 Len);
 
 extern void UART_Receive(u8 *data, u16 *len);
 
+/*  if uart buffer is not empty: return number of available bytes  */
+extern u8 UART_u8DataAvilable(void);
+
+/* return last byte in uart buffer */
+extern u8 UART_u8ReadByte(void);
+
 #endif /* UART_H_ */

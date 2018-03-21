@@ -10,6 +10,7 @@
 #include "BIT_MATH.h"
 #include "DIO_int.h"
 #include "DIO_reg.h"
+#include "UART.h"
 #include "task1.h"
 #include "task2.h"
 #include "Clock_adjust.h"
@@ -26,34 +27,34 @@ void voidCheckModeUART(void)
 	u32KeypadStoredValue = KP_u16GetStatus();
 	if(GET_BIT(u32KeypadStoredValue, Minutes))
 	{
-		u8 u8Byte = (ID_KP_ADJUST<<4)|(1U);
+		u8 u8Byte = (ID_MOD_SWITCH<<4)|(1U);
 		UART_Transmit(&u8Byte, 1);
 	}
 	else if (GET_BIT(u32KeypadStoredValue, Hours))
 	{
-		u8 u8Byte = (ID_KP_ADJUST<<4)|(2U);
-		UART_Transmit(&u8Byte, 2);
+		u8 u8Byte = (ID_MOD_SWITCH<<4)|(2U);
+		UART_Transmit(&u8Byte, 1);
 	}
 	else if (GET_BIT(u32KeypadStoredValue, Seconds))
 	{
-		u8 u8Byte = (ID_KP_ADJUST<<4)|(0U);
-		UART_Transmit(&u8Byte, 0);
+		u8 u8Byte = (ID_MOD_SWITCH<<4)|(0U);
+		UART_Transmit(&u8Byte, 1);
 	}
 }
 
 void voidDisplaySeconds(void)
 {
-	PORTB = u8SegNum[Sec2];
+	PORTC = u8SegNum[Sec2];
 	PORTA = u8SegNum[Sec1];
 }
 void voidDisplayMinutes(void)
 {
-	PORTB = u8SegNum[Min2];
+	PORTC = u8SegNum[Min2];
 	PORTA = u8SegNum[Min1];
 }
 void voidDisplayHours(void)
 {
-	PORTB = u8SegNum[Hr2];
+	PORTC = u8SegNum[Hr2];
 	PORTA = u8SegNum[Hr1];
 }
 void voidDisplay(void)
