@@ -21,8 +21,6 @@ const OS_config_task OS_cfg[] = {
 								{SW_voidSwTask, 1}, // Switch Sampling
 								{taskSwitch2Led, 3},
 								{taskSwitch1Led, 3},
-								//{voidTask2,5},
-
 								{protcole_task,1},
 								{voidCheckModeUART, 1},
 								{voidDisplay, 2}};//DISPLAY and CHANGE DISPLAY

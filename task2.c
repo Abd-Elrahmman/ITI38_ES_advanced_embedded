@@ -70,10 +70,14 @@ void voidDisplay(void)
 	case 2:
 		voidDisplayHours();
 	break;
+
+	default:
+		break;
 	}
 }
 /********************** Prev View Hrs, Min, Sec *****************************************/
 
+/*
 void voidTask2(void)
 {
 	static u32 u32KeypadStoredValue;
@@ -133,3 +137,4 @@ void voidTask2(void)
 
 }
 
+*/

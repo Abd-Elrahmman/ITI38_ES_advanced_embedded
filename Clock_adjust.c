@@ -12,6 +12,8 @@
 #include "task1.h"
 #include "task2.h"
 #include "KP_int.h"
+#include "protocol.h"
+#include "UART.h"
 
 #define NORMAL_STATE        0
 #define ADJUSTING_STATE     5
@@ -22,6 +24,9 @@
 extern u8 counterSec;
 extern u8 countermin;
 extern u8 counterhr ;
+/* display mode */
+extern u8 u8CurrentMode;
+static u8 u8Byte;
 
 
 u8 u8GetNum(void)
@@ -73,7 +78,6 @@ u8 u8GetNum(void)
 	return i;
 }
 
-u8 u8FlagAdjustmentMode;
 
 void voidClockAdjust(void)
 {
@@ -82,6 +86,7 @@ void voidClockAdjust(void)
 	static u8 u8AdjustValue;                     /* new adjust value                 */
 	static u16 u16AdjustStateTimeout;            /* Amount of time that the adjust mode can be active in*/
 	static u16 u16KeypadStoredValue;             /* holds last pressed key value */
+	static u8 u8digit[2];
 
 	switch(u16AdjustState)
 	{
@@ -100,7 +105,12 @@ void voidClockAdjust(void)
 			u8AdjustValue  = 0;
 			/* go to adjusting mode */
 			u16AdjustState = ADJUSTING_STATE;
-			u8FlagAdjustmentMode = 1;
+			/* set display mode for adjusting mode */
+			u8CurrentMode = 0xFF;
+			/* clear 7 segm display*/
+			PORTC = u8SegNum[0];
+			PORTA = u8SegNum[0];
+
 			break;
 		}
 		break;
@@ -109,21 +119,20 @@ void voidClockAdjust(void)
 			/* allow user to enter tow digits only as long as the adjust event didn't timeout */
 			if(u16AdjustStateTimeout && u8DigitCounter < 2)
 			{
-				u8 u8digit = u8GetNum();
+				u8 u8num = u8GetNum();
                 /* if got number from 0 to 9 */
-				if(u8digit < 10)
+				if(u8num < 10)
 				{
+					u8digit[u8DigitCounter] = u8num;
 					/* combine the tow digits in one decimal value*/
 					if(u8DigitCounter == 0)
 					{
-						PORTC = u8SegNum[u8digit];
-						u8AdjustValue = u8digit * 10;
+						PORTA = u8SegNum[u8num];
 						u16AdjustStateTimeout = 6;
 					}
 					else
 					{
-						PORTA = u8SegNum[u8digit];
-						u8AdjustValue += u8digit;
+						PORTC = u8SegNum[u8num];
 					}
 					u8DigitCounter++;
 				}
@@ -133,35 +142,77 @@ void voidClockAdjust(void)
 			else if(u16AdjustStateTimeout && u8DigitCounter == 2)
 			{
 				u16AdjustState = u16KeypadStoredValue;
-				u8FlagAdjustmentMode = 0;
 			}
 			/* if adjust has'nt been completed successfully dismiss it */
 			else
 			{
 				u16AdjustState = NORMAL_STATE;
-				u8FlagAdjustmentMode = 0;
+				u8CurrentMode = 0; /* to display seconds by default */
+
 			}
 			break;
 
 		case ADJUST_SS_STATE:
 			/* update seconds with the u8AdjustValue*/
 			if (u8AdjustValue < 60){
-				counterSec = u8AdjustValue;
+
+				/* Stores the Keyboard Number ID, and place it in the higher nibble - 4 bits -*/
+				/* send adjust command */
+				u8Byte = (ID_KP_ADJUST<<4)|(0U);
+				UART_Transmit(&u8Byte, 1);
+				/* send the first digit */
+				u8Byte = (ID_KP_VALUE<<4)|(u8digit[0]);
+				UART_Transmit(&u8Byte, 1);
+				/* send the second digit */
+				u8Byte = (ID_KP_VALUE<<4)|(u8digit[1]);
+				UART_Transmit(&u8Byte, 1);
 			}
+			else
+						{
+							/* DO NOTHING */
+						}
+
+			u8CurrentMode = 0; /* to display seconds */
 			u16AdjustState = NORMAL_STATE;
 			break;
 		case ADJUST_MM_STATE:
+
 			/* update minutes with the u8AdjustValue*/
 			if (u8AdjustValue < 60){
-				countermin = u8AdjustValue;
+				u8Byte = (ID_KP_ADJUST<<4)|(1U);
+				UART_Transmit(&u8Byte, 1);
+				/* send the first digit */
+				u8Byte = (ID_KP_VALUE<<4)|(u8digit[0]);
+				UART_Transmit(&u8Byte, 1);
+				/* send the second digit */
+				u8Byte = (ID_KP_VALUE<<4)|(u8digit[1]);
+				UART_Transmit(&u8Byte, 1);
 			}
+			else
+						{
+							/* DO NOTHING */
+						}
+
+			u8CurrentMode = 0; /* to display minutes */
 			u16AdjustState = NORMAL_STATE;
 			break;
 		case ADJUST_HH_STATE:
 			/* update hours with the u8AdjustValue*/
 			if (u8AdjustValue < 24){
-				counterhr = u8AdjustValue;
+				u8Byte = (ID_KP_ADJUST<<4)|(2U);
+				UART_Transmit(&u8Byte, 1);
+				/* send the first digit */
+				u8Byte = (ID_KP_VALUE<<4)|(u8digit[0]);
+				UART_Transmit(&u8Byte, 1);
+				/* send the second digit */
+				u8Byte = (ID_KP_VALUE<<4)|(u8digit[1]);
+				UART_Transmit(&u8Byte, 1);
 			}
+			else
+			{
+				/* DO NOTHING */
+			}
+			u8CurrentMode = 0; /* to display hours */
 			u16AdjustState = NORMAL_STATE;
 			break;
 	}
