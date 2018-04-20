@@ -1,12 +1,11 @@
-/*
+	/*
  * DIO_MCAL.h
  *
- *  Created on: ??þ/??þ/????
- *      Author: AltAWKEl
+ *      Author: Ahmed Abdelghany
  */
 
-#ifndef DIO_MCAL_H_
-#define DIO_MCAL_H_
+#ifndef DIO_H_
+#define DIO_H_
 
 #include "STD_TYPES.h"
 #include "DIO_config.h"
@@ -26,4 +25,4 @@ u8 DIO_u8ReadPin(DIO_PIN_NAME_T PinName);
 
 
 
-#endif /* DIO_MCAL_H_ */
+#endif /* DIO_H_ */

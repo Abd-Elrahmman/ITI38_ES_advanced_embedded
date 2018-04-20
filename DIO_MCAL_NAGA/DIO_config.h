@@ -2,7 +2,7 @@
  * DIO_config.h
  *
  *  Created on: 27/3/2018
- *      Author: DKOSH
+ *      Author: Ahmed Abdelghany
  */
 
 #ifndef DIO_CONFIG_H_
@@ -61,20 +61,6 @@ typedef enum
 
 /* Prototype for DIO_MODE Array*/
 extern const DIO_PIN_MODE_T DIO_MODE [];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ///*************************** Registers ******************************///
 /* Group A Registers */

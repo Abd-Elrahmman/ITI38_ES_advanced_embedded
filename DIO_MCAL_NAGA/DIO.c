@@ -2,11 +2,11 @@
  * DIO_MCAL.c
  *
  *  Created on: 27/3/2018
- *      Author: DKOSH
+ *      Author: Ahmed Abdelghany
  */
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
-#include "DIO_MCAL.h"
+#include "DIO.h"
 
 #define Number_of_Pins 			8
 

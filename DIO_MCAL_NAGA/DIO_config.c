@@ -2,7 +2,7 @@
  * DIO_config.c
  *
  *  Created on: 27/3/2018
- *      Author: DKOSH
+ *      Author: Ahmed Abdelghany
  */
 #include "DIO_config.h"
 
@@ -39,5 +39,5 @@ const DIO_PIN_MODE_T DIO_MODE [] = {OUTPUT, 						  // PIN_MODE_0
 									OUTPUT,                           // PIN_MODE_29
 									OUTPUT,                           // PIN_MODE_30
 									OUTPUT,                           // PIN_MODE_31
-							} ;
+} ;
 
